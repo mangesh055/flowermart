@@ -358,10 +358,12 @@ export function AdminOrdersPage() {
               </div>
 
               <div className="col-span-2">
-                <p className="text-muted-foreground">Fulfilment Type & Address:</p>
-                <p className="font-semibold text-brown capitalize">{selectedOrder.fulfilment_type}</p>
-                {selectedOrder.delivery_address && (
-                  <p className="text-xs text-brown/80 pt-0.5">{selectedOrder.delivery_address}</p>
+                <p className="text-muted-foreground">Order Collection:</p>
+                <p className="font-semibold text-brown">Store Pickup (Dadar Flower Market)</p>
+                {selectedOrder.payment_note && (
+                  <p className="text-xs text-saffron pt-0.5">
+                    <strong>Payment Mode:</strong> {selectedOrder.payment_note}
+                  </p>
                 )}
               </div>
 
@@ -388,9 +390,21 @@ export function AdminOrdersPage() {
                     <span className="font-bold text-brown">{formatINR(it.line_total)}</span>
                   </div>
                 ))}
-                <div className="pt-2 flex justify-between font-bold text-sm text-brown">
-                  <span>Total Amount</span>
-                  <span className="text-saffron">{formatINR(selectedOrder.total_amount)}</span>
+                <div className="pt-2 border-t border-cream space-y-1 text-xs">
+                  <div className="flex justify-between text-muted-foreground">
+                    <span>Total Deal Amount:</span>
+                    <span className="font-semibold text-brown">{formatINR(selectedOrder.total_amount)}</span>
+                  </div>
+                  <div className="flex justify-between text-green-700">
+                    <span>Advance / Paid:</span>
+                    <span className="font-bold">{formatINR(selectedOrder.advance_paid ?? 0)}</span>
+                  </div>
+                  <div className="flex justify-between font-bold text-sm text-brown pt-1 border-t border-cream/50">
+                    <span>Balance Due on Pickup:</span>
+                    <span className="text-saffron">
+                      {formatINR(selectedOrder.balance_amount ?? Math.max(0, selectedOrder.total_amount - (selectedOrder.advance_paid ?? 0)))}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
