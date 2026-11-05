@@ -1,0 +1,92 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 40 100% 97%;
+    --foreground: 25 30% 20%;
+    
+    --card: 36 60% 96%;
+    --card-foreground: 25 30% 20%;
+    
+    --popover: 40 100% 97%;
+    --popover-foreground: 25 30% 20%;
+    
+    --primary: 31 82% 53%; /* Saffron Orange #E98A26 */
+    --primary-foreground: 40 100% 98%;
+    
+    --secondary: 135 30% 27%; /* Deep Green #315B3B */
+    --secondary-foreground: 40 100% 98%;
+    
+    --muted: 36 30% 90%;
+    --muted-foreground: 25 20% 45%;
+    
+    --accent: 349 44% 52%; /* Rose #B94E61 */
+    --accent-foreground: 40 100% 98%;
+    
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 36 28% 85%;
+    --input: 36 28% 85%;
+    --ring: 31 82% 53%;
+    --radius: 0.85rem;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-ivory text-foreground font-body;
+    background-color: #FFF9F0;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display text-brown;
+  }
+}
+
+@layer components {
+  .btn-saffron {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 bg-saffron text-white hover:bg-saffron-600 active:scale-[0.98] shadow-md hover:shadow-lg rounded-xl px-5 py-2.5 text-sm;
+  }
+  
+  .btn-green {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 bg-green-500 text-white hover:bg-green-600 active:scale-[0.98] shadow-md hover:shadow-lg rounded-xl px-5 py-2.5 text-sm;
+  }
+
+  .btn-outline-saffron {
+    @apply inline-flex items-center justify-center font-medium transition-all duration-200 border-2 border-saffron text-saffron hover:bg-saffron hover:text-white active:scale-[0.98] rounded-xl px-5 py-2.5 text-sm;
+  }
+
+  .badge-tag {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-semibold tracking-wide;
+  }
+
+  .card-garland {
+    @apply bg-white rounded-2xl overflow-hidden border border-cream shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1 flex flex-col;
+  }
+
+  .section-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Custom subtle scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #F6EBD7;
+}
+::-webkit-scrollbar-thumb {
+  background: #E98A26;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C77017;
+}
+
